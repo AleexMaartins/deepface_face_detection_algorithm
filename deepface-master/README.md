@@ -1,5 +1,5 @@
 # deepface
-
+CREDIT: https://github.com/serengil/deepface
 <div align="center">
 
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/deepface?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pypi%20downloads)](https://pepy.tech/project/deepface)
