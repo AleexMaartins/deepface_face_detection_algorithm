@@ -29,8 +29,8 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
 ```shell
 $ pip install deepface
 ```
-
-```To Run:
+To Run:
+```
 $ cd deepface-master
 $ python test_deepface.py
 ````
