@@ -34,7 +34,7 @@ for image in allImages:
         
 
     # Facial analysis Person
-    result = DeepFace.analyze(allImages, actions=["age", "gender", "race", "emotion"])
+    result = DeepFace.analyze(image, actions=["age", "gender", "race", "emotion"])
     person = result[0]
     print("Age:", person["age"])
     print("Gender:", person["gender"])
