@@ -2,40 +2,53 @@ from deepface import DeepFace
 import matplotlib.pyplot as plt
 import os
 import glob
+import cv2
+from mtcnn import MTCNN
 
 # Specify the path to the directory containing the images
 dir_path = "tests/dataset/small_dataset/"
 
 # Get all the image paths
-image_paths = glob.glob(os.path.join(dir_path, "*.jpg"))
+allImages = glob.glob(os.path.join(dir_path, "*.jpg"))
 
-#array to store all paths to images of 1 person 
-Jolie = []
+# Array to store all paths to images of 1 person 
+Person = []
 
-#goal is the image of the person we want to find 
-goal = "tests/dataset/img1.jpg"
+# Goal is the image of the person we want to find 
+imageToFind = "tests/dataset/img1.jpg"
 
 # Iterate over the image paths
-for img_path in image_paths:
-    # Face verification
-    result = DeepFace.verify(img_path, goal) #goal is the image of the person we want to find 
-    verified = result["verified"]
-    print("Is verified:", verified)
-    if verified:
-        Jolie.append(img_path)
+for image in allImages:
 
-    # Facial analysis
-    result = DeepFace.analyze(img_path, actions=["age", "gender", "race", "emotion"])
+    # Face verification for Person
+    result = DeepFace.verify(image, imageToFind)
+    verified_person = result["verified"]
+
+    # Check which person the face belongs to
+
+    if verified_person:
+        print("The face IS from the desired Person.")
+        Person.append(image)
+    else:
+        print("The face does NOT belong to the desired Person.")
+        
+
+    # Facial analysis Person
+    result = DeepFace.analyze(allImages, actions=["age", "gender", "race", "emotion"])
     person = result[0]
     print("Age:", person["age"])
     print("Gender:", person["gender"])
     print("Race:", person["dominant_race"])
     print("Emotion:", person["dominant_emotion"])
 
-#print how many photos were found of the person
-print("Images that have the correct face: ", len(Jolie))
+# Dictionary to store the name of the person in the image
+nameOfPerson = {image: 'Angelina Jolie' for image in Person}
+
+# Print how many photos were found of the person
+print("Images that have the correct face: ", len(Person))
+
 # Iterate over the image paths
-for img_path in Jolie:
+for img_path in Person:
     # Extract faces
     detected_faces = DeepFace.extract_faces(img_path, enforce_detection=True)
 
@@ -45,6 +58,7 @@ for img_path in Jolie:
         for face_obj in detected_faces:
             face = face_obj["face"]
             plt.imshow(face)  # Display the face image
+            plt.title(f'{nameOfPerson[img_path]}')  # Label the face
             plt.show()
     else:
         print("No faces detected in the image.")
