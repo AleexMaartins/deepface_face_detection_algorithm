@@ -1,9 +1,8 @@
+from matplotlib import pyplot as plt
 from deepface import DeepFace
-import matplotlib.pyplot as plt
 import os
 import glob
 import cv2
-from mtcnn import MTCNN
 
 # Specify the path to the directory containing the images
 dir_path = "tests/dataset/small_dataset/"
@@ -34,7 +33,7 @@ for image in allImages:
         
 
     # Facial analysis Person
-    result = DeepFace.analyze(allImages, actions=["age", "gender", "race", "emotion"])
+    result = DeepFace.analyze(image, actions=["age", "gender", "race", "emotion"])
     person = result[0]
     print("Age:", person["age"])
     print("Gender:", person["gender"])
@@ -47,7 +46,8 @@ nameOfPerson = {image: 'Angelina Jolie' for image in Person}
 # Print how many photos were found of the person
 print("Images that have the correct face: ", len(Person))
 
-# Iterate over the image paths
+
+#Iterate over the image paths
 for img_path in Person:
     # Extract faces
     detected_faces = DeepFace.extract_faces(img_path, enforce_detection=True)
