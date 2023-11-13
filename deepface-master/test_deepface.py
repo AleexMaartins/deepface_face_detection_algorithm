@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import os
 import glob
 from PIL import Image
-import cv2.data
-from mtcnn import MTCNN
 
 ##### Start of: Format check #####
 def convert_to_jpg(image_path):
