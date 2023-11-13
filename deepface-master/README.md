@@ -3,7 +3,6 @@ CREDIT: https://github.com/serengil/deepface
 <div align="center">
 
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/deepface?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pypi%20downloads)](https://pepy.tech/project/deepface)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/deepface?color=green&label=conda%20downloads)](https://anaconda.org/conda-forge/deepface)
 [![Stars](https://img.shields.io/github/stars/serengil/deepface?color=yellow&style=flat)](https://github.com/serengil/deepface/stargazers)
 [![License](http://img.shields.io/:license-MIT-green.svg?style=flat)](https://github.com/serengil/deepface/blob/master/LICENSE)
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dserengil%26type%3Dpatrons&style=flat)](https://www.patreon.com/serengil?repo=deepface)
@@ -24,7 +23,6 @@ Deepface is a lightweight [face recognition](https://sefiks.com/2018/08/06/deep-
 
 Experiments show that human beings have 97.53% accuracy on facial recognition tasks whereas those models already reached and passed that accuracy level.
 
-## Installation [![PyPI](https://img.shields.io/pypi/v/deepface.svg)](https://pypi.org/project/deepface/) [![Conda](https://img.shields.io/conda/vn/conda-forge/deepface.svg)](https://anaconda.org/conda-forge/deepface)
 
 The easiest way to install deepface is to download it from [`PyPI`](https://pypi.org/project/deepface/). It's going to install the library itself and its prerequisites as well.
 
@@ -32,25 +30,10 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
 $ pip install deepface
 ```
 
-Secondly, DeepFace is also available at [`Conda`](https://anaconda.org/conda-forge/deepface). You can alternatively install the package via conda.
-
-```shell
-$ conda install -c conda-forge deepface
-```
-
-Thirdly, you can install deepface from its source code.
-
-```shell
-$ git clone https://github.com/serengil/deepface.git
-$ cd deepface
-$ pip install -e .
-```
-
-Then you will be able to import the library and use its functionalities.
-
-```python
-from deepface import DeepFace
-```
+```To Run:
+$ cd deepface-master
+$ python test_deepface.py
+````
 
 **Facial Recognition** - [`Demo`](https://youtu.be/WnUVYQP4h44)
 
