@@ -29,13 +29,13 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
 1. GitClone:
 
    ```bash
-   $ git clone https://github.com/AleexMaartins/deepface_face_detection_algorithm.git
-   $ cd deepface-master
+   git clone https://github.com/AleexMaartins/deepface_face_detection_algorithm.git
+   cd deepface-master
    ````
 2. Create venv
     ```` bash
-   $ python -m venv venv
-   $ venv\Scripts\activate     #(on windows)
+   python -m venv venv
+   venv\Scripts\activate     #(on windows)
    ````
 3. Install requirements
     ```` bash
@@ -44,7 +44,7 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
    ````
 4. Run
     ```` bash
-    $ python test_deepface.py
+    python test_deepface.py
    ````
 
 **Facial Recognition** - [`Demo`](https://youtu.be/WnUVYQP4h44)
