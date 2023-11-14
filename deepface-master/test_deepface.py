@@ -14,8 +14,8 @@ def convert_to_jpg(image_path):
 # Specify the path to the directory containing the images
 dir_path = "tests/dataset/small_dataset/"
 
-allimage_formats = ['*.jpg', '*.jpeg', '*.png', '*.bmp', '*.gif', '*.tiff', '*.ico', '*.jfif', '*.webp']
-wrong_formats = ['.jpeg', '.png', '.bmp', '.gif', '.tiff', '.ico', '.jfif', '.webp']
+allimage_formats = ['*.jpg', '*.jpeg', '*.png', '*.bmp', '*.tiff', '*.ico', '*.jfif', '*.webp']
+wrong_formats = ['.jpeg', '.png', '.bmp', '.tiff', '.ico', '.jfif', '.webp']
 allImages = []
 for image_format in allimage_formats:
     allImages.extend(glob.glob(os.path.join(dir_path, image_format)))
