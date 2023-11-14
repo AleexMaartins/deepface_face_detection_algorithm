@@ -6,6 +6,8 @@ from PIL import Image
 ##### Start of: Format check #####
 def convert_to_jpg(image_path):
     img = Image.open(image_path)
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
     converted_path = os.path.splitext(image_path)[0] + '.jpg'
     img.save(converted_path, 'JPEG')
     os.remove(image_path)    #delete old image with wrong format
@@ -14,8 +16,8 @@ def convert_to_jpg(image_path):
 # Specify the path to the directory containing the images
 dir_path = "tests/dataset/small_dataset/"
 
-allimage_formats = ['*.jpg', '*.jpeg', '*.png', '*.bmp', '*.tiff', '*.ico', '*.jfif', '*.webp']
-wrong_formats = ['.jpeg', '.png', '.bmp', '.tiff', '.ico', '.jfif', '.webp']
+allimage_formats = ['*.jpg', '*.jpeg', '*.png', '*.bmp', '*.gif', '*.tiff', '*.ico', '*.jfif', '*.webp']
+wrong_formats = ['.jpeg', '.png', '.bmp', '.gif', '.tiff', '.ico', '.jfif', '.webp']
 allImages = []
 for image_format in allimage_formats:
     allImages.extend(glob.glob(os.path.join(dir_path, image_format)))
