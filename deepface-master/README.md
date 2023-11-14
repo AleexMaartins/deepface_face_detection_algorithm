@@ -35,7 +35,7 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
 2. Create venv
     ```` bash
    $ python -m venv venv
-   $ venv\Scripts\activate     #(em windows)
+   $ venv\Scripts\activate     #(on windows)
    ````
 3. Install requirements
     ```` bash
