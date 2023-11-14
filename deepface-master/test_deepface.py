@@ -1,5 +1,4 @@
 from deepface import DeepFace
-import matplotlib.pyplot as plt
 import os
 import glob
 from PIL import Image
