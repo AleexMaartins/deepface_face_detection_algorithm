@@ -40,7 +40,6 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
 3. Install requirements
     ```` bash
    pip install -r requirements.txt
-    ~~$ pip install deepface~~
    ````
 4. Run
     ```` bash
