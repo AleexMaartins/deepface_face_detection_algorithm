@@ -32,16 +32,11 @@ The easiest way to install deepface is to download it from [`PyPI`](https://pypi
    git clone https://github.com/AleexMaartins/deepface_face_detection_algorithm.git
    cd deepface-master
    ````
-2. Create venv
-    ```` bash
-   python -m venv venv
-   venv\Scripts\activate     #(on windows)
-   ````
-3. Install requirements
+2. Install requirements
     ```` bash
    pip install -r requirements.txt
    ````
-4. Run
+3. Run
     ```` bash
     python test_deepface.py
    ````
