@@ -2,6 +2,10 @@ from deepface import DeepFace
 import os
 import glob
 from PIL import Image
+import time
+
+# Start the timer
+start_time = time.time()
 
 ##### Start of: Format check #####
 def convert_to_jpg(image_path):
@@ -76,6 +80,7 @@ print("Person list: ",Person)
 # Print how many photos were found of the person
 print("Images that have the correct face: ", len(Person))
 
+
 # Iterate over the image paths
 # for img_path in Person:
 #     # Extract faces
@@ -91,3 +96,9 @@ print("Images that have the correct face: ", len(Person))
 #             plt.show()
 #     else:
 #         print("No faces detected in the image.")
+
+
+# End the timer and print the elapsed time
+end_time = time.time()
+elapsed_time = round(end_time - start_time, 3)
+print(f"Elapsed time: {elapsed_time} seconds")
