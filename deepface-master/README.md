@@ -26,14 +26,26 @@ Experiments show that human beings have 97.53% accuracy on facial recognition ta
 
 The easiest way to install deepface is to download it from [`PyPI`](https://pypi.org/project/deepface/). It's going to install the library itself and its prerequisites as well.
 
-```shell
-$ pip install deepface
-```
-To Run:
-```
-$ cd deepface-master
-$ python test_deepface.py
-````
+1. GitClone:
+
+   ```bash
+   $ git clone https://github.com/AleexMaartins/deepface_face_detection_algorithm.git
+   $ cd deepface-master
+   ````
+2. Create venv
+    ```` bash
+   $ python -m venv venv
+   $ venv\Scripts\activate     #(em windows)
+   ````
+3. Install requirements
+    ```` bash
+   pip install -r requirements.txt
+    ~~$ pip install deepface~~
+   ````
+4. Run
+    ```` bash
+    $ python test_deepface.py
+   ````
 
 **Facial Recognition** - [`Demo`](https://youtu.be/WnUVYQP4h44)
 
