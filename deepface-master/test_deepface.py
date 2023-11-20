@@ -3,6 +3,10 @@ import os
 import glob
 from PIL import Image
 import time
+import matplotlib.pyplot as plt
+
+
+
 
 # Start the timer
 start_time = time.time()
@@ -42,11 +46,12 @@ del convertedImages #delete convertedImages
 
 ##### End of: Format Check #####
 
+# Goal is the image of the person we want to find 
+imageToFind = "tests/dataset/img1.jpg"
 # Array to store all paths to images of 1 person 
 Person = []
 
-# Goal is the image of the person we want to find 
-imageToFind = "tests/dataset/img1.jpg"
+
 #check if imageToFind is with the correct format
 if os.path.splitext(imageToFind)[1].lower() in wrong_formats:
     imageToFind = convert_to_jpg(imageToFind)
@@ -57,7 +62,9 @@ for image in allImages:
     # Face verification for Person
     result = DeepFace.verify(image, imageToFind, enforce_detection=False)
     verified_person = result["verified"]
-
+    #give certinity of the result
+    certinity = result["distance"]
+    print("Certinity: ", certinity)
     # Check which person the face belongs to
     if verified_person:
         print("The face IS from the desired Person.")
@@ -66,36 +73,36 @@ for image in allImages:
         print("The face does NOT belong to the desired Person.")
 
     # Facial analysis Person
-    # result = DeepFace.analyze(image, actions=["age", "gender", "race", "emotion"])
-    # person = result[0]
-    # print("Age:", person["age"])
-    # print("Gender:", person["gender"])
-    # print("Race:", person["dominant_race"])
-    # print("Emotion:", person["dominant_emotion"])
+    result = DeepFace.analyze(image, actions=["age", "gender", "race", "emotion"])
+    person = result[0]
+    print("Age:", person["age"])
+    print("Gender:", person["gender"])
+    print("Race:", person["dominant_race"])
+    print("Emotion:", person["dominant_emotion"])
 
 
 # Dictionary to store the name of the person in the image
-# nameOfPerson = {image: 'Angelina Jolie' for image in Person}
+nameOfPerson = {image: 'Angelina Jolie' for image in Person}
 print("Person list: ",Person)
 # Print how many photos were found of the person
 print("Images that have the correct face: ", len(Person))
 
 
 # Iterate over the image paths
-# for img_path in Person:
-#     # Extract faces
-#     detected_faces = DeepFace.extract_faces(img_path, enforce_detection = False)
+for img_path in Person:
+    # Extract faces
+    detected_faces = DeepFace.extract_faces(img_path, enforce_detection = False)
 
-#     # Display the faces if any were detected
-#     if detected_faces:
-#         # Iterate over the detected faces
-#         for face_obj in detected_faces:
-#             face = face_obj["face"]
-#             plt.imshow(face)  # Display the face image
-#             plt.title(f'{nameOfPerson[img_path]}')  # Label the face
-#             plt.show()
-#     else:
-#         print("No faces detected in the image.")
+    # Display the faces if any were detected
+    if detected_faces:
+        # Iterate over the detected faces
+        for face_obj in detected_faces:
+            face = face_obj["face"]
+            plt.imshow(face)  # Display the face image
+            plt.title(f'{nameOfPerson[img_path]}')  # Label the face
+            plt.show()
+    else:
+        print("No faces detected in the image.")
 
 
 # End the timer and print the elapsed time

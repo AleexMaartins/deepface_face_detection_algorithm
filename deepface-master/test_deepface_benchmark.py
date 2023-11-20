@@ -4,6 +4,7 @@ import subprocess
 import time
 import shutil
 
+
 # Path to your test_deepface.py script
 script_path = "test_deepface.py"
 
@@ -24,6 +25,7 @@ benchmark_path = "tests/dataset/benchmark_alljpg/"
 # benchmark_path = "tests/dataset/benchmark_allpng/"
 
 ######################################################
+
 
 # Run the script 5 times
 average=[]
